@@ -20,7 +20,7 @@ file.each.with_index do |line, idx|
     start_idx, end_idx  = match_data.offset(0)
     length = end_idx - start_idx
 
-    prefix = "#{idx}: "
+    prefix = "#{idx + 1}: "
     puts "#{prefix}#{line}"
     print " " * (prefix.size + start_idx)
     puts '~' * length
