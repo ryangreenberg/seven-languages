@@ -52,8 +52,21 @@ class RubyCsv
   include ActsAsCsv
   acts_as_csv
 
-  def each
+  def each(&block)
+    @csv_contents.each do |row|
+      yield CsvRow.new(@headers, row)
+    end
+  end
+end
 
+class CsvRow
+  attr_reader :row
+  def initialize(headers, row)
+    @row = Hash[headers.zip(row)]
+  end
+
+  def method_missing(method_name)
+    @row[method_name.to_s]
   end
 end
 
