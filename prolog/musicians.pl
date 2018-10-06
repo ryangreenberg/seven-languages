@@ -37,3 +37,13 @@ genre(taylor_swift, pop).
 %%
 %% genre_plays(X) :- genre(Y, X), plays(Y, Z).
 %% uncaught exception: error(existence_error(procedure,(:-)/2),top_level/0)
+
+genre_instrument(X, Y) :- genre(Z, X), plays(Z, Y).
+
+%% | ?- genre_instrument(rock, Y).
+%%
+%% Y = piano ? a
+%%
+%% Y = guitar
+%%
+%% Y = guitar
