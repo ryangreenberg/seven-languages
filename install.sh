@@ -19,3 +19,4 @@ rbenv install --skip-existing
 check ruby
 check io
 check gprolog
+check scala -version
