@@ -2,8 +2,9 @@
 
 function check() {
   local cmd=$1
+  local version_flag="${2:-"--version"}"
   ruby -e "cmd = '$cmd'; puts '== ' + cmd + ' ' + '=' * (80 - 4 - cmd.length)"
-  "$cmd" --version
+  "$cmd" "$version_flag"
   echo ""
 }
 
