@@ -14,10 +14,31 @@
   - Output the list of cards and the pair if one exists. Avoid using the `.get` method on `Option`; try to use pattern matching instead.
 */
 
+import scala.util.Random
+
+// suit could be a sealed trait
+case class Card(value: Int, suit: String) {
+  override def toString = {
+    val v = value match {
+      case 13 => "K"
+      case 12 => "Q"
+      case 11 => "J"
+      case i => i.toString
+    }
+    s"${v}${suit}"
+  }
+}
+
 object App {
   def main(args: Array[String]) {
-    println("Hello world")
 
+    val cards = deal(5)
+    println(cards)
+
+    pair(cards) match {
+      case Some((c1, c2)) => println("There was a pair:" + c1 + " and " + c2)
+      case None => println("There was no pair")
+    }
     // Deal some cards, then see if there is a pair
     // Display the list of cards and the pair if one exists
     // Avoid calling .get on an option; try using pattern matching
@@ -25,6 +46,17 @@ object App {
 
   // In both these methods you will be replacing all occurences of "String"
   // with your Card case class
-  def deal(n: Int): Seq[String] = ???
-  def pair(cards: Seq[String]): Option[(String, String)] = ???
+  def deal(n: Int): Seq[Card] = {
+    val suits = Seq("H", "S", "D", "C")
+
+    (1 to n).map { _ =>
+      val suit = suits(Random.nextInt(suits.size))
+      val value = Random.nextInt(12) + 1
+      Card(value, suit)
+    }
+  }
+
+  def pair(cards: Seq[Card]): Option[(Card, Card)] = {
+
+  }
 }
