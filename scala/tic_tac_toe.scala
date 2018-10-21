@@ -77,8 +77,12 @@ object App {
     val boards =
       Seq(
         Board(".OXO.X.OX"),
-        Board("X...X...X"),
+        Board("OX..OXX.O"),
+        Board("........."),
+        Board("XOXXXOOXO"),
       )
+
+
 
     boards.foreach { b =>
       println(b)
