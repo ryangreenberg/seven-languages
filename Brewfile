@@ -12,3 +12,6 @@ brew 'gnu-prolog'
 # From "Usage" example at https://github.com/Homebrew/homebrew-bundle
 cask "java" unless system "/usr/libexec/java_home --failfast"
 brew 'scala'
+
+# Erlang
+brew 'erlang'
