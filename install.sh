@@ -1,9 +1,14 @@
 #!/bin/bash
 
+function header() {
+  local title=$1
+  ruby -e "title = '$title'; puts '== ' + title + ' ' + '=' * (80 - 4 - title.length)"
+}
+
 function check() {
   local cmd=$1
   local version_flag="${2:-"--version"}"
-  ruby -e "cmd = '$cmd'; puts '== ' + cmd + ' ' + '=' * (80 - 4 - cmd.length)"
+  header "$cmd"
   "$cmd" "$version_flag"
   echo ""
 }
@@ -20,3 +25,7 @@ check ruby
 check io
 check gprolog
 check scala -version
+
+# See https://stackoverflow.com/questions/9560815/
+header erlang
+erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell
