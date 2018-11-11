@@ -15,3 +15,6 @@ brew 'scala'
 
 # Erlang
 brew 'erlang'
+
+# Clojure
+brew 'clojure'

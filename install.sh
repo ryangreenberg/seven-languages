@@ -29,3 +29,7 @@ check scala -version
 # See https://stackoverflow.com/questions/9560815/
 header erlang
 erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell
+echo ""
+
+header clojure
+clojure -e "(clojure-version)"
