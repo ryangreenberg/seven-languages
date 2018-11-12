@@ -18,3 +18,4 @@ brew 'erlang'
 
 # Clojure
 brew 'clojure'
+brew 'leiningen'
