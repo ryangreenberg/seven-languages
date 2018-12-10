@@ -19,3 +19,8 @@ brew 'erlang'
 # Clojure
 brew 'clojure'
 brew 'leiningen'
+
+# Haskell
+brew 'ghc'
+brew 'cabal-install'
+brew 'haskell-stack'

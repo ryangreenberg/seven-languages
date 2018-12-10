@@ -33,3 +33,6 @@ echo ""
 
 header clojure
 clojure -e "(clojure-version)"
+echo ""
+
+check ghc
